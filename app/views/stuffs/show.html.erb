@@ -1,0 +1,8 @@
+<%= render @stuff %>
+
+<div class="my-2">
+  <p><%= link_to "Edit this stuff", edit_stuff_path(@stuff) %> </p>
+  <p><%= link_to "Back to stuffs", stuffs_path %></p>
+
+  <%= button_to "Destroy this stuff", @stuff, method: :delete, class: 'btn btn-danger' %>
+</div>

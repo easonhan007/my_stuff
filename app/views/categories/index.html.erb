@@ -1,0 +1,27 @@
+<h3>Categories</h3>
+
+<table class="table my-2">
+  <thead>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Created At</th>
+    <th>Updated At</th>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.id %></td>
+        <td><%= category.name %></td>
+        <td><%= category.desc %></td>
+        <td><%= time_ago_in_words category.created_at %> ago </td>
+        <td><%= time_ago_in_words category.updated_at %> ago </td>
+      </tr>
+    <% end #each %>
+  </tbody>
+</table>
+
+
+<div class="my-2">
+  <%= link_to "New category", new_category_path, class: 'btn btn-primary'%>
+</div>

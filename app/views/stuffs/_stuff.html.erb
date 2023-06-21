@@ -1,0 +1,21 @@
+<div id="<%= dom_id stuff %>" class="row mb-2 text-center">
+  <div class="col">
+    <%= link_to stuff.name, stuff_path(stuff) %>
+  </div>
+
+  <div class="col">
+    <%= stuff.desc %>
+  </div>
+
+  <div class="col">
+    <%= stuff.amount %>
+  </div>
+
+  <div class="col">
+    <%= stuff.category.name %>
+  </div>
+
+  <div class="col">
+    <%= del_btn('Delete', stuff_path(stuff)) %>
+  </div>
+</div>

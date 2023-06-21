@@ -1,0 +1,37 @@
+<%= form_with(model: stuff) do |form| %>
+  <% if stuff.errors.any? %>
+    <div style="color: red">
+      <p><%= pluralize(stuff.errors.count, "error") %> prohibited this stuff from being saved:</p>
+
+      <ul>
+        <% stuff.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-2">
+    <%= form.label :name, class: 'form-label' %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :desc, class: 'form-label' %>
+    <%= form.text_field :desc,class: "form-control" %>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :amount, class: 'form-label' %>
+    <%= form.number_field :amount,class: "form-control" %>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :category_id, class: 'form-label'  %>
+    <%= form.collection_select :category_id, Category.order('created_at'), :id, :name, {}, class: 'form-select' %>
+  </div>
+
+  <div class="mb-2">
+    <%= form.submit('Create', class: 'btn btn-primary') %>
+  </div>
+<% end %>
