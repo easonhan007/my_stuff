@@ -1,4 +1,17 @@
-<%= render @stuff %>
+  <table class="table">
+    <thead>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Amount</th>
+      <th>category</th>
+      <th></th>
+      <th></th>
+    </thead>
+    <tbody>
+      <%= render @stuff %>
+    </tbody>
+  </table>
 
 <div class="my-2">
   <p><%= link_to "Edit this stuff", edit_stuff_path(@stuff) %> </p>

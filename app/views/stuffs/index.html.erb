@@ -1,23 +1,29 @@
-<h3>Stuffs</h3>
+<h3>
+  <%= link_to "", new_stuff_path, data: {turbo_frame: 'modal'}, class: 'bi bi-plus-circle' %>
+  Stuffs
+</h3>
 
 <div class="row">
-  <div id="stuffs" class="col-md-8">
-    <div class="row mb-2 text-center">
-      <div class="col">Name</div>
-      <div class="col">Description</div>
-      <div class="col">Quantity</div>
-      <div class="col">Category</div>
-      <div class="col">Action</div>
-    </div>
-    <% @stuffs.each do |stuff| %>
-      <%= render stuff %>
-      <p>
-      </p>
-    <% end %>
+  <div class="col-md-8">
+  <table class="table">
+    <thead>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Amount</th>
+      <th>category</th>
+      <th></th>
+      <th></th>
+    </thead>
+    <tbody id="stuffs">
+      <% @stuffs.each do |stuff| %>
+        <%= render stuff %>
+      <% end %>
+    </tbody>
+  </table>
   </div>
   <div class="col-md-4">
     <%= turbo_frame_tag 'modal' %>
   </div>
 </div>
 
-<%= link_to "New stuff", new_stuff_path, data: {turbo_frame: 'modal'} %>

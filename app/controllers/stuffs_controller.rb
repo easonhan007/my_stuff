@@ -27,7 +27,7 @@ class StuffsController < ApplicationController
       if @stuff.save
         format.html { redirect_to stuff_url(@stuff), notice: "Stuff was successfully created." }
         format.json { render :show, status: :created, location: @stuff }
-        format.turbo_stream { render turbo_stream: turbo_stream.append('stuffs', partial: 'stuffs/stuff', locals: {stuff: @stuff})}
+        format.turbo_stream { render turbo_stream: turbo_stream.prepend('stuffs', partial: 'stuffs/stuff', locals: {stuff: @stuff})}
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @stuff.errors, status: :unprocessable_entity }
@@ -41,6 +41,7 @@ class StuffsController < ApplicationController
       if @stuff.update(stuff_params)
         format.html { redirect_to stuff_url(@stuff), notice: "Stuff was successfully updated." }
         format.json { render :show, status: :ok, location: @stuff }
+        format.turbo_stream {render turbo_stream: turbo_stream.replace(@stuff)}
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @stuff.errors, status: :unprocessable_entity }

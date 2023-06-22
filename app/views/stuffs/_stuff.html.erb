@@ -1,21 +1,9 @@
-<div id="<%= dom_id stuff %>" class="row mb-2 text-center">
-  <div class="col">
-    <%= link_to stuff.name, stuff_path(stuff) %>
-  </div>
-
-  <div class="col">
-    <%= stuff.desc %>
-  </div>
-
-  <div class="col">
-    <%= stuff.amount %>
-  </div>
-
-  <div class="col">
-    <%= stuff.category.name %>
-  </div>
-
-  <div class="col">
-    <%= del_btn('Delete', stuff_path(stuff)) %>
-  </div>
-</div>
+<tr id="<%= dom_id stuff %>" >
+  <td><%= stuff.id %> </td>
+  <td><%= link_to stuff.name, stuff_path(stuff) %> </td>
+  <td><%= stuff.desc.truncate(10) %> </td>
+  <td><%= stuff.amount %></td>
+  <td><%= stuff.category.name %></td>
+  <td><%= link_to('', edit_stuff_path(stuff), data: {turbo_frame: 'modal'}, class: 'bi bi-pencil' ) %></td>
+  <td><%= del_btn('', stuff_path(stuff)) %></td>
+</tr>

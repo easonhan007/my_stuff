@@ -1,8 +1,9 @@
 <h1>Editing stuff</h1>
 
-<%= render "form", stuff: @stuff %>
+<%= turbo_frame_tag 'modal' do%>
+  <%= render "form", stuff: @stuff %>
+<% end %>
 
-<br>
 
 <div>
   <%= link_to "Show this stuff", @stuff %> |
