@@ -3,7 +3,14 @@ class StuffsController < ApplicationController
 
   # GET /stuffs or /stuffs.json
   def index
-    @stuffs = Stuff.all
+    if params[:q].present?
+      @stuffs = Stuff.name_filter(params[:q][:name_cont]).desc_filter(params[:q][:desc_cont])
+    else
+      @stuffs = Stuff
+    end #if
+    
+    @pagy, @stuffs = pagy(@stuffs.order('created_at DESC'))
+    @q = params[:q] || {}
   end
 
   # GET /stuffs/1 or /stuffs/1.json

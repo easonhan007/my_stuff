@@ -13,9 +13,11 @@
     </tbody>
   </table>
 
-<div class="my-2">
-  <p><%= link_to "Edit this stuff", edit_stuff_path(@stuff) %> </p>
-  <p><%= link_to "Back to stuffs", stuffs_path %></p>
-
-  <%= button_to "Destroy this stuff", @stuff, method: :delete, class: 'btn btn-danger' %>
+<div class="my-2 row">
+  <div class="col">
+    <%= link_to "Back to stuffs", stuffs_path, class: 'btn btn-light'%>
+  </div>
+  <div class="col">
+    <%= button_to "Destroy this stuff", @stuff, method: :delete, class: 'btn btn-danger' %>
+  </div>
 </div>

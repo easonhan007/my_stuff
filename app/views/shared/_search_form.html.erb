@@ -1,0 +1,12 @@
+<form class="row" id="stuff_search" action="/stuffs" accept-charset="UTF-8" method="get">
+    <div class="col">
+        <input type="search" name="q[name_cont]" id="q_name_cont" value="<%= q[:name_cont]%>" placeholder="Name contains" class="form-control">
+    </div>
+    <div class="col">
+        <input type="search" name="q[desc_cont]" id="q_desc_cont" value="<%= q[:desc_cont] %>" placeholder="Description contains" class="form-control">
+    </div>
+    <div class="col">
+        <input type="submit" name="commit" value="Search" data-disable-with="Search" class="btn btn-light">
+        <a href="/stuffs" class="btn btn-light">Reset</a>
+    </div>
+</form>
